@@ -1,0 +1,28 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<sys/types.h>
+#include<fcntrl.h>
+#include<unistd.h>
+#include<string.h>
+
+void main(int argc,char* argv[])
+{
+   int fd,num,num1;
+   char buf[50];
+   if(argc==3)
+      {
+         mkfifo(argv[1],0666);
+         fd=open(argv[1],O_WONLY);
+         num=write(fd,argv[2],strlen[2]);
+         printf("%d byte of msg is written",num);
+      }
+      
+   if(argc==2)
+      {
+         fd=open(argv[1],O_WRONLY);
+         num=write(fd,buf,sizeof(buf));
+         printf("%d characters are read with msg %s",num1,buf);
+      }
+      close(fd);
+      unlink(argv[1]);
+}
