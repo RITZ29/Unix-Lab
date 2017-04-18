@@ -1,0 +1,24 @@
+#include<stdio.h>
+#include<unistd.h>
+
+int main()
+{
+   pid_t pid;
+   pid=fork();
+   else if(pid>0)
+      {
+         printf("The parent process:%d,sleep for a minute",getpid());
+      }
+       sleep(60);
+    
+   else
+   {
+      printf("The child process is:%d",Exit immediately,getpid());
+      exit(0);
+   }
+   
+   system("ps-e-o pid,ppid,stat,cmd");
+   return 0;
+}
+
+   
