@@ -1,0 +1,32 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<sys/types.h>
+#include<unistd.h>
+#include<sys/wait.h>
+
+
+int main()
+{
+   pid_t pid;
+   printf("Parent id = %d",getpid());
+   if((pid=fork())<0)
+     {
+        printf("Fork error\n");
+     }
+     
+     else if(pid==0)
+       {
+          printf("First child pid=%d\n",getpid);
+          if((pid-fork())<0)
+            {
+               printf("Fork error\n");
+            }
+            
+            else if(pid>0)
+            sleep(5);
+            printf("2nd child pid = %d",getpid());
+       }
+       sleep(5);
+       system("ps a -e pid,ppid,stat,cmd");
+       return 0;
+}
