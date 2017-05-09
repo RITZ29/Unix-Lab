@@ -1,0 +1,35 @@
+#include<stdio.h>
+#include<unsistd.h>
+#include<signal.h>
+#define INTERVALS
+
+void callone(int signo)
+{
+   alarm(INTERVALS);
+   printf("In calling\n");
+}
+
+int main()
+{
+   struct sigaction action;
+   sig emptyset | &action,sa_mask;
+   sigaction.sa_handler=((void(*)0)callme);
+   sigaction.sa_flags=SA_RESTART;
+   if(sigaction(SIGALARM,&action,0)==-1)
+     {
+        printf("Alarm error\n");
+        return(1);
+     }
+     
+   if(alarm(INTERVAL)==-1)
+     {
+        printf("Alarm error\n");
+        exit(0);
+     }
+     
+   else
+     {
+        sleep(10);
+        printf("Alarm executed\n");
+     }
+}
