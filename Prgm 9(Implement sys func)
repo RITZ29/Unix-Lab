@@ -1,0 +1,39 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<sys/types.h>
+#include<unistd.h>
+
+
+int sys(const char*)
+
+int main(int argc,char*argv[])
+{
+   sys(argv[1]);
+}
+
+int sys(const char*,cmd string)
+{
+   pid_t pid;
+   int status;
+   if(cmd string==NULL)
+     {
+        printf("Error\n");
+     }
+     
+   if((pid=fork())==-1)
+     {
+        printf("Error\n");
+     }
+
+   else if(pid==0)
+     {
+        execl("/bin/sh","sh","-c",cmd string,(char*)0);
+        exit(0);
+     }
+
+   else
+     {
+        waitpid(pid,&status,0);
+        return 0;
+     }
+     
