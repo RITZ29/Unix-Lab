@@ -1,0 +1,91 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+
+int parsecondition(char[],int,char* int)
+
+void gen(char[],char[],char[],int)
+
+int main()
+{
+   int counter=0,stlen=0,else flag=0;
+   char stmt[60];
+   char strB[54];
+   char strs1[50];
+   char strs2[45];
+   clrscr();
+   printf("Format of if statement\n");
+   printf("if(a<b) then (s=a)\n");
+   printf("Enter the statement\n");
+   gets(stmt);
+   stlen=strlen(stmt);
+   countr=parsecondition(stmt,counter,strs1,stlen);
+   if(stmt[counter+1]=';')
+     {
+        printf("Parsing the i/n statement");
+        gen(strB,strs1,strs2,else flag);
+        getch();
+        return 0;
+     }
+     
+   if(stmt[counter]==')')
+   counter++;
+   counter=counter+3;
+   counter=parsecondition(stmt,counter,strs2,stlen);
+   counter=counter+2;
+   if(counter==stlen)
+     {
+        else flag=1;
+        printf("Parsing the input statement");
+        gen(strB,strs1,else flag,strs2);
+        getch();
+        rteurn 0;
+     }
+     return 0;
+}
+
+
+int parsecondition(char input[],int cntr,char*dest,int totallen)
+{
+   int index=0,pos=0;
+   while(input[cntr]!=(&& cntr<=totallen)
+   cntr++;
+   
+   if(cntr>=totallen)
+     return 0;
+   index=cntr;
+   
+   while(input[cntr]!=')')
+   cntr++;
+   
+   if(cntr>=totallen)
+     return 0;
+     
+   while(inde<=cntr)
+   dest+[pos++]=input[index++];
+   dest[pos]='\0';
+   return 0;
+}
+
+
+void gen(charB[],chars1[],chars2[],int elsepart)
+{
+   int Bt=101,Bf=102,Sn=103;
+   printf("If %s goto %d",B,Bt);
+   printf("If %s goto %d",B,Bt);
+   printf("%d:",Bt);
+   printf("%s",s1);
+   if(!elsepart)
+     {
+        printf("%d:",Bf);
+     }
+     
+   else
+     {
+        printf("\n\t %d",Sn);
+        printf("%d:%s",Bf,S2)
+        printf("%d:",Sn);
+     }
+}
+
+   
