@@ -1,0 +1,74 @@
+#include<stdio.h>
+#include<string.h>
+#include<fcntl.h>
+#include<unistd.h>
+
+int main(int argc,char* argv[])                                    //Terminal 1
+{
+   int fd;
+   struct flock lock;
+   printf("Opening file %s",argv[1]);
+   fd=open(argv[1],0,RDONLY);
+   printf("Locking files= %s",argv[1]);
+   lock.l_type=F_RDLCK;
+   lock.l_start=-99;
+   lock.l_whence=SEEK_END;
+   lock.l_len=100;
+   fcntl(fd,F_SETLKW,&lock);
+   printf("Unlocking the file= %s",lock.l_pid,argv[1]);
+   printf("Press enter to unlock the file %s",argv[1]);
+   getchar();
+   printf("Unlocking the file %s",argv[1]);
+   lock.l_type=F_UNLCK;
+   fcntl(fd,F_SETLKW,&lock);
+   printf("File %s is unlock",argv[1]);
+   close(fd);
+   return 0;
+}
+
+
+#include<stdio.h>
+#include<string.h>
+#include<fcntl.h>
+#include<unistd.h>
+
+int main(int argc,char* argv[])                                       //Terminal 2
+{
+   int fd,num;
+   struct flock,lock;
+   char buf[100];
+   printf("Opening file %s",argv[1]);
+   fd=open(argv[1],0,RDONLY);
+   printf("Checking the current lock on files %s",argv[]);
+   lock.l_type=F_WRLCK;
+   lock.l_start=-99;
+   lock.l_len=100;
+   fcntl(fd,FGETLCK,&UNLCK);
+   if(locl.l_type!=F_UNLCK)
+     {
+        printf("Process with id %d has %c lock on file %s",lock.l_pid(lock.l_type==F_WRLCK)"W":"R",argv[1]);
+        return 0;
+     }
+     printf("Locking the file %s",argv[1]);
+     lock.l_type=F_WRLCK;
+     lock.l_start=-99;
+     lock.l_whence=SEEK_END;
+     lock.l_len=100;
+     fcntl(fd,F_SETLK,&lock);
+     printf("Process with id %d has locked the file in %s",lock.l_pid,argv[1]);
+     printf("Reading the last 50 bytes from %s",argv[1]);
+     lseek(fd,-50,SEEK_END);
+     num=read(fd,buf,50);
+     buf[num]='\0';
+     printf("Last 50 bytes= %s,buf");
+     printf("Press enter key to release");
+     getchar();
+     printf("Unlocking file= %s",argv);
+     lock.l_type=F_UNLCK;
+     fcntl(fd,F_SETLK,&lock);
+     printf("%s file is unlock",argv[1]);
+     close(fd);
+     return 0;
+}
+
+   
